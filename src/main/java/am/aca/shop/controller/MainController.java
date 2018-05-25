@@ -20,9 +20,14 @@ public class MainController {
     }
 
     @RequestMapping("/")
-    public ModelAndView index() {
+    public ModelAndView index(@RequestParam(value = "category", required = false) String category) {
         ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("products", productService.getProducts());
+        if (category != null) {
+            modelAndView.addObject("products", productService.getProductsByCategory(category));
+        }
+        else {
+            modelAndView.addObject("products", productService.getProducts());
+        }
         return modelAndView;
     }
 

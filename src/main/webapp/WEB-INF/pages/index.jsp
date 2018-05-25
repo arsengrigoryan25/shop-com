@@ -12,11 +12,12 @@
 <body>
 <div>
     <ul id="menu" class="center">
-        <li><a href="#">Electronics</a></li>
-        <li><a href="#">Real Estate</a></li>
-        <li><a href="#">Vehicles</a></li>
-        <li><a href="#">Everything for Kids</a></li>
-        <li><a href="#">Tools and Materials</a></li>
+        <li><a href="?category=Electronics">Էլեկտրոնիկա</a></li>
+        <li><a href="?category=RealEstate">Անշարժ գույք</a></li>
+        <li><a href="?category=Vehicles">Տրանսպորտ</a></li>
+        <li><a href="?category=ForKids">Երեխաների աշխարհ</a></li>
+        <li><a href="?category=ToolsAndMaterials">Գործիքներ և նյութեր</a></li>
+        <li><a href="?category=Furniture">Կահույք</a></li>
     </ul>
 </div>
 <div style="height: 100px"></div>
