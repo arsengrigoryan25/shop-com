@@ -9,7 +9,7 @@
 
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/list</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.password">roottoor</property>
 
         <property name="hbm2ddl.auto">validate</property>
 

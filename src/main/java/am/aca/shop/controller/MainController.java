@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
 @Controller
 @RequestMapping("/")
 public class MainController {
@@ -22,6 +23,13 @@ public class MainController {
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("products", productService.getProducts());
+        return modelAndView;
+    }
+
+    @RequestMapping("/product")
+    public ModelAndView product(@RequestParam("id") int id) {
+        ModelAndView modelAndView = new ModelAndView("product");
+        modelAndView.addObject("element", productService.getProductById(id));
         return modelAndView;
     }
 }

@@ -17,6 +17,13 @@ public class Element {
         this.images_url = images_url;
     }
 
+    public Element(Product product) {
+        this.setName(product.getName());
+        this.setDescription(product.getDescription());
+        this.setPrice(product.getPrice());
+        this.setImages_url(product.getImages().get(0).getUrl());
+    }
+
     public String getImages_url() {
         return images_url;
     }
