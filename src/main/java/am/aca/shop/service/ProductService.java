@@ -2,6 +2,7 @@ package am.aca.shop.service;
 
 import am.aca.shop.domain.Element;
 import am.aca.shop.domain.Product;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -17,26 +18,40 @@ public class ProductService {
             .configure()
             .buildSessionFactory();
 
-    public List<Element> getProducts(){
-
+    public List<Element> getProducts() {
         Session session = sessionFactory.openSession();
-
-        List<Product> productList =  session.createQuery("From Product").list();
-
-        List<Element>  elementList = new ArrayList<>();
-
-        for(Product p: productList) {
-            Element element = new Element();
-            element.setName(p.getName());
-            element.setDescription(p.getDescription());
-            element.setPrice(p.getPrice());
-            element.setImages_url(p.getImages().get(0).getUrl());
+        List<Product> productList = session.createQuery("FROM Product").list();
+        List<Element> elementList = new ArrayList<>();
+        Element element;
+        for (Product p : productList) {
+            element = new Element(p);
             elementList.add(element);
         }
-
         session.close();
-        return elementList ;
+        return elementList;
     }
 
+    public List<Element> getProductsByDescription(String description) {
+        Session session = sessionFactory.openSession();
+        List<Product> productList = session.createQuery("FROM Product WHERE description like :description")
+                .setParameter("description", description)
+                .list();
+        List<Element> elementList = new ArrayList<>();
+        Element element;
+        for (Product p : productList) {
+            element = new Element(p);
+            elementList.add(element);
+        }
+        session.close();
+        return elementList;
+    }
 
+    public Element getProductById(int id) {
+        Session session = sessionFactory.openSession();
+        Element element = new Element(
+                (Product) session.createQuery("FROM Product WHERE id = :id")
+                        .setParameter("id", id).list().get(0)
+        );
+        return element;
+    }
 }
