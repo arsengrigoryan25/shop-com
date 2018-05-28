@@ -12,11 +12,12 @@
 <body>
 <div>
     <ul id="menu" class="center">
-        <li><a href="#">Electronics</a></li>
-        <li><a href="#">Real Estate</a></li>
-        <li><a href="#">Vehicles</a></li>
-        <li><a href="#">Everything for Kids</a></li>
-        <li><a href="#">Tools and Materials</a></li>
+        <li><a href="?category=Electronics">Էլեկտրոնիկա</a></li>
+        <li><a href="?category=RealEstate">Անշարժ գույք</a></li>
+        <li><a href="?category=Vehicles">Տրանսպորտ</a></li>
+        <li><a href="?category=ForKids">Երեխաների աշխարհ</a></li>
+        <li><a href="?category=ToolsAndMaterials">Գործիքներ և նյութեր</a></li>
+        <li><a href="?category=Furniture">Կահույք</a></li>
     </ul>
 </div>
 <div style="height: 100px"></div>
@@ -28,6 +29,14 @@
         </p>
         <img src="${element.images_url}"/>
     </c:forEach>
+</div>
+<div style="height: 100px"></div>
+<div>
+    <ul>
+        <c:forEach items="${pages}" var="page">
+            <li><a href="?page=${page}&category=${category}"><${page}></a></li>
+        </c:forEach>
+    </ul>
 </div>
 </body>
 </html>
