@@ -30,5 +30,13 @@
         <img src="${element.images_url}"/>
     </c:forEach>
 </div>
+<div style="height: 100px"></div>
+<div>
+    <ul>
+        <c:forEach items="${pages}" var="page">
+            <li><a href="?page=${page}&category=${category}"><${page}></a></li>
+        </c:forEach>
+    </ul>
+</div>
 </body>
 </html>
