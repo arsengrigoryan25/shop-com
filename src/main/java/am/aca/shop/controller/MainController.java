@@ -43,7 +43,7 @@ public class MainController {
         if (productList.size() % elementCount == 0) {
             pageList.remove(pageList.size() - 1);
         }
-        //  Ordinary check...
+        //  An ordinary check...
         if (page <= 0 || page > pageList.size()) {
             return null;
         }
